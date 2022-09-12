@@ -48,7 +48,7 @@ Example: L5_SWAGGER_CONST_HOST=http://127.0.0.1:8000/api
 
 <br>
 
-## Menjalankan 
+## Running 
 If all the preparations have been made then to run it as follows:
 
 Using bash:
