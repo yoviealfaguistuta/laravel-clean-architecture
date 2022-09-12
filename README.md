@@ -3,7 +3,7 @@
 
 <div align="center">
  <h2 align="center">Laravel Clean Architecture</h2>
- <p align="center">This is one way to make laravel project clean so it's easy to read</p>
+ <p align="center">This is one of the other way to make laravel project clean so it's easy to read</p>
 </div>
 
 <br />
