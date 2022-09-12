@@ -2,68 +2,87 @@
 <br>
 
 <div align="center">
- <h1 align="center">Kledo - Technical Test</h1>
+ <h2 align="center">Laravel Clean Architecture</h2>
+ <p align="center">This is one way to make laravel project clean so it's easy to read</p>
 </div>
 
-<br>
+<br />
+<br />
 
-## Persiapan
+## Implementation
 
-Untuk menjalankan project ini maka yang harus disiapkan adalah:
-- PHP v.7.3
-- Laravel 8.40
-- MySql
+This project using:
 
-Aktifkan beberapa extensi di file php.ini sebagai berikut:
-- pdo_mysql
+- ![Form Request Validation](https://img.shields.io/badge/-Form_Request_Validation-0D1117?style=flat)&nbsp;
+
+- ![Repository Pattern](https://img.shields.io/badge/-Repository_Pattern-0D1117?style=flat)&nbsp;
+
+- ![Clean Controller](https://img.shields.io/badge/-Clean_Controller-0D1117?style=flat)&nbsp;
+
+- ![Swagger Documentation](https://img.shields.io/badge/-Swagger_Documentation-0D1117?style=flat)&nbsp;
+
+- ![Testing](https://img.shields.io/badge/-Testing-0D1117?style=flat)&nbsp;
+
+
+## Prerequisite
+
+To run this project, what you have to prepare is:
+
+![PHP v.7.3+](https://img.shields.io/badge/-PHP_v.7.3+-0D1117?style=flat&logo=php)&nbsp;
+![Laravel 8.40](https://img.shields.io/badge/-Laravel_8.40+-0D1117?style=flat&logo=laravel)&nbsp;
+![PostgreeSql](https://img.shields.io/badge/-PostgreeSql-0D1117?style=flat&logo=postgresql)&nbsp;
+- 
+
+Enable multiple extensions in the php.ini file as follows:
+- pdo_pgsql
 - fileinfo 
-- mysqli 
+- pgsql 
 - openssl 
 
-Tambahkan environment variable Swagger di file .env:
+Adding Swagger environment variable in file .env:
  ```sh
  L5_SWAGGER_CONST_HOST=(Laravel Server)/api
  ```
-Contoh: L5_SWAGGER_CONST_HOST=http://127.0.0.1:8000/api
+Example: L5_SWAGGER_CONST_HOST=http://127.0.0.1:8000/api
 
 
 <br>
 
 ## Menjalankan 
-Jika semua persiapan sudah dilakukan maka untuk menjalankannya sebagai berikut:
+If all the preparations have been made then to run it as follows:
 
-Cara otomatis dengan bash
+Using bash:
  ```sh
  ./run.sh
  ```
 
-Cara Manual
-1. Menginstall atau memperbarui paket yang dibutuhkan
+Manual Installation:
+1. Install or update the required packages
   ```sh
   composer update
   ```
 
-2. Mengatur kunci aplikasi
+2. Set app key
   ```sh
   php artisan:key generate
   ```
 
-3. Membuat tabel dan data constant dengan migrasi dan seeder
+3. Create table and data constants with migrations and seeders
   ```sh
   php artisan migrate:fresh --seed
   ```
 
-4. Testing dan pastikan tidak ada tulisan berwarna merah
+4. Test and make sure there are no errors
   ```sh
   php artisan test
   ```
 
-5. Jalankan server laravel
+5. Run laravel server
   ```sh
   php artisan serve
   ```
 
-6. Buka browser dan salin alamat berikut ke kolom pencarian
+6. Open a browser and copy the following address into the search field
   ```sh
   http://127.0.0.1:8000/
   ```
