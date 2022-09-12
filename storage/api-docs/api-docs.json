@@ -1,0 +1,231 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Dokumentasi API",
+        "description": "Badan Perencanaan Pembangunan Daerah Lampung Timur",
+        "contact": {
+            "email": "hi.wasissubekti02@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000/api",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/employees": {
+            "post": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Adding Employee",
+                "description": "Menambah Pegawai",
+                "operationId": "employees",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "salary": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "Yovie Alfaguistuta",
+                                    "salary": 6000000
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "body": {
+                                        "name": "Yovie Alfaguistuta",
+                                        "salary": "6000000",
+                                        "id": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/overtimes": {
+            "post": {
+                "tags": [
+                    "Overtime"
+                ],
+                "summary": "Adding Overtime",
+                "description": "Membuat data waktu lembur",
+                "operationId": "overtimes",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "employee_id": {
+                                        "type": "integer"
+                                    },
+                                    "date": {
+                                        "type": "string"
+                                    },
+                                    "time_started": {
+                                        "type": "string"
+                                    },
+                                    "time_ended": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "employee_id": 1,
+                                    "date": "2022-01-02",
+                                    "time_started": "12:00",
+                                    "time_ended": "14:00"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "body": {
+                                        "id": 1,
+                                        "employee_id": 1,
+                                        "date": "2022-01-05",
+                                        "time_started": "12:00",
+                                        "time_ended": "14:00"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/overtimes-pays/calculate": {
+            "get": {
+                "tags": [
+                    "Overtime"
+                ],
+                "summary": "Detail List Overtime by Employee",
+                "description": "Melihat biaya lembur pegawai",
+                "operationId": "overtimes-pays",
+                "parameters": [
+                    {
+                        "name": "month",
+                        "in": "query",
+                        "description": "Ex: 2022-01, Format: YYYY-MM",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "body": {
+                                        "id": 1,
+                                        "name": "Yovie Alfaguistuta",
+                                        "salary": 6000000,
+                                        "overtime_duration_total": 2,
+                                        "amount": 104046.24277456649,
+                                        "overtime": [
+                                            {
+                                                "id": 1,
+                                                "employee_id": 1,
+                                                "date": "2022-01-01",
+                                                "time_started": "17:00",
+                                                "time_ended": "19:00",
+                                                "overtime_duration": 2
+                                            },
+                                            {
+                                                "id": 2,
+                                                "employee_id": 1,
+                                                "date": "2022-01-02",
+                                                "time_started": "17:00",
+                                                "time_ended": "19:00",
+                                                "overtime_duration": 2
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/settings": {
+            "patch": {
+                "tags": [
+                    "Setting"
+                ],
+                "summary": "Update Setting",
+                "description": "Merubah Pengaturan Metode Uang Lembur.",
+                "operationId": "settings",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "key": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "key": "overtime_method",
+                                    "value": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "body": 1
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

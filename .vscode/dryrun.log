@@ -1,0 +1,6 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'c:/localhost3/htdocs/kledo/kledo-technical-test'
+make: Leaving directory 'c:/localhost3/htdocs/kledo/kledo-technical-test'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
